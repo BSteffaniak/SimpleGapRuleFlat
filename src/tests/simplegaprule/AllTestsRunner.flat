@@ -25,6 +25,8 @@ class AllTestsRunner {
             unsucessful.forEach({
                 Console.log("#_")
             })
+
+            System.exit(1)
         } else {
             fancy.writeHeader("All Successful", pattern: ":) ", symmetrical: true)
         }
