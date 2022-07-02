@@ -1,3 +1,5 @@
+[![Test SimpleGapRuleFlat](https://github.com/BSteffaniak/SimpleGapRuleFlat/actions/workflows/build.yml/badge.svg)](https://github.com/BSteffaniak/SimpleGapRuleFlat/actions/workflows/build.yml)
+
 # SimpleGapRule
 Simple campsite gap rule implementation in Flat
 
