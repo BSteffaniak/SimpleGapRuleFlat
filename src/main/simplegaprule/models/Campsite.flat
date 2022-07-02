@@ -1,6 +1,6 @@
 package "simplegaprule/models"
 
-import "nova/datastruct/HashMap"
+import "flatlang/datastruct/HashMap"
 
 import "simplegaprule/InvalidCampsiteException"
 
@@ -8,12 +8,12 @@ import "simplegaprule/InvalidCampsiteException"
 class Campsite extends Model {
     public Int id
     public String name
-    
+
     public construct(HashMap<String, Object> map) {
         id = Int.parseInt((String)map["id"])
         name = (String)map["name"]
     }
-    
+
     /// Get the reservations for this Campsite on the given environment.
     ///
     /// environment: The environment to get the reservations from.
@@ -22,9 +22,9 @@ class Campsite extends Model {
         environment.reservations.filter({
             _.campsiteId == id
         })
-    
+
     /// Get whether the given reservationTime Search parameter is available at this Campsite.
-    /// 
+    ///
     /// environment: The environment that contains the campsite and reservations.
     /// reservationTime: The time to check availability for. Start/end date
     /// return: true if is available at the requested reservationTime, else false
@@ -33,20 +33,20 @@ class Campsite extends Model {
         if (!environment.campsites.contains(this)) {
             throw new InvalidCampsiteException()
         }
-        
+
         // Fetch all reservations for the campsite
         let reservations = getReservations(environment)
-        
+
         if (reservations.any({ _.doesOverlap(reservationTime) })) {
             return false // already reserved during this time
         }
-        
+
         // Get reservations adjacent to the target reservation time
         let adjacent = reservations.filter({ _.isAdjacent(reservations, reservationTime) })
-        
+
         // Make sure none violate any existing gap rules
         return !adjacent.any({ _.doesViolateAnyGapRules(environment.gapRules, reservationTime) })
     }
-           
+
     public toString() => '"' + name + '"'
 }

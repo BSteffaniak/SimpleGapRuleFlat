@@ -1,5 +1,5 @@
 # SimpleGapRule
-Simple campsite gap rule implementation in Nova
+Simple campsite gap rule implementation in Flat
 
 __The problem__
 
@@ -21,7 +21,7 @@ __Assumptions__
  * Check the given gap rules exactly; no less than. (e.g. if only gap rule is 3 days, then 1 and 2 are valid)
  * The json input files are formatted correctly (including valid property values, e.g. valid dates).
  * Quotes were intended to surround the outputted campsite names.
- * "Teddy *Rosevelt* Tent Site" was a typo in the test-case.json (I did not fix) 
+ * "Teddy *Rosevelt* Tent Site" was a typo in the test-case.json (I did not fix)
 
 __Running the project from command line__
 
