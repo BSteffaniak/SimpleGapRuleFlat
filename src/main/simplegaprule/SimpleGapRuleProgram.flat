@@ -37,7 +37,7 @@ class SimpleGapRuleProgram {
                 args.first + " filename1.json directoryName filenameN.json'");
         }
 
-        args.skip(2)
+        args.skip(1)
             .map({ loadFile(_) })
             .forEach({
                 _.forEach({
