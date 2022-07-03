@@ -1,0 +1,14 @@
+{
+  "name": "SimpleGapRule",
+  "version": "1.0.0",
+  "description": "Simple Gap Rule",
+  "mainClass": "simplegaprule/SimpleGapRuleProgram",
+  "scripts": {
+
+  },
+  "author": "Braden Steffaniak",
+  "license": "ISC",
+  "dependencies": {
+    "../Nest": "local"
+  }
+}
