@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Simple Gap Rule",
   "mainClass": "simplegaprule/SimpleGapRuleProgram",
+  "outDirectory": "dist",
+  "source": "src/main",
   "scripts": {
 
   },
