@@ -55,7 +55,7 @@ jobs:
 
       - name: Build SimpleGapRule Test
         run: |
-          java -jar Flat/target/flat-cli-1.0-SNAPSHOT-jar-with-dependencies.jar \
+          java -jar Flat/target/flatc.jar \
             src \
             -l Nest \
             -install-dir . \
