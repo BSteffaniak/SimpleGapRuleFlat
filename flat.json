@@ -11,6 +11,8 @@
   "author": "Braden Steffaniak",
   "license": "ISC",
   "dependencies": {
-    "../Nest": "local"
+    "../Nest": "local",
+    "../Json": "local",
+    "../Compiler-String-Extensions": "local"
   }
 }

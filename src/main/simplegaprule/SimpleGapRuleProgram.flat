@@ -1,9 +1,8 @@
 package "simplegaprule"
 
 import "flatlang/datastruct/HashMap"
-
 import "flatlang/io/File"
-import "flatlang/serialization/JsonSerializer"
+import "flatlang/json/JsonDeserializer"
 
 import "simplegaprule/models/CampspotEnvironment"
 
@@ -80,7 +79,7 @@ class SimpleGapRuleProgram {
     ///
     /// jsonFile: The file to load the test data from.
     public construct(File file) {
-        let serializer = new JsonSerializer()
+        let serializer = new JsonDeserializer()
 
         environment = new CampspotEnvironment((HashMap)serializer.parse(file))
     }

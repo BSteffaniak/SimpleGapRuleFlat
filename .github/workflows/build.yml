@@ -53,11 +53,25 @@ jobs:
           repository: FlatLang/Nest
           path: Nest
 
+      - name: Checkout Json library
+        uses: actions/checkout@master
+        with:
+          repository: FlatLang/Json
+          path: Json
+
+      - name: Checkout Compiler-String-Extensions library
+        uses: actions/checkout@master
+        with:
+          repository: FlatLang/Compiler-String-Extensions
+          path: Compiler-String-Extensions
+
       - name: Build SimpleGapRule Test
         run: |
           java -jar Flat/target/flatc.jar \
             src \
             -l Nest \
+            -l Json \
+            -l Compiler-String-Extensions \
             -install-dir . \
             -main \
             simplegaprule/AllTestsRunner \
