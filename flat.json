@@ -4,14 +4,16 @@
   "description": "Simple Gap Rule",
   "author": "Braden Steffaniak",
   "license": "ISC",
-  "scripts": {},
+  "defaultTarget": "js",
+  "scripts": {
+    "test": "node dist/test.js"
+  },
   "main": {
     "mainClass": "simplegaprule/SimpleGapRuleProgram",
     "outDirectory": "dist",
     "source": "src/main",
     "dependencies": {
-      "../Json": "local",
-      "../Compiler-String-Extensions": "local"
+      "github:FlatLang/Json": "master"
     }
   },
   "test": {
@@ -19,7 +21,7 @@
     "outDirectory": "dist",
     "source": "src",
     "dependencies": {
-      "../Nest": "local"
+      "github:FlatLang/Nest": "master"
     }
   }
 }
