@@ -13,7 +13,8 @@
     "outDirectory": "dist",
     "source": "src/main",
     "dependencies": {
-      "github:FlatLang/Json": "master"
+      "github:FlatLang/Json": "master",
+      "github:FlatLang/System": "master"
     }
   },
   "test": {
