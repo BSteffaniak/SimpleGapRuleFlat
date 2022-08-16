@@ -7,7 +7,7 @@ import "novex/nest/TestResult"
 [TestSuite [ModelTests, GapRuleTests, FileInputTests]]
 class AllTestsRunner {
     public static async main(String[] args) {
-        let runner = new AllTestsRunner()
+        let runner = AllTestsRunner()
 
         let unsucessful = new TestResult[]
 
@@ -17,7 +17,7 @@ class AllTestsRunner {
             }
         })
 
-        let fancy = new FancyOutputStream(headerPattern: "/\\")
+        let fancy = FancyOutputStream(headerPattern: "/\\")
 
         if (unsucessful.count > 0) {
             fancy.writeHeader("#unsucessful.count Failure#{unsucessful.count == 1 ? "" : "s"}", pattern: ":'( ", symmetrical: true)

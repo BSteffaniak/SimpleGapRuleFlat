@@ -15,7 +15,7 @@ testable class ModelTests {
     var SimpleGapRuleProgram program
 
     init_test setup() {
-        program = new SimpleGapRuleProgram(new File("test-case.json"))
+        program = SimpleGapRuleProgram(File("test-case.json"))
     }
 
     test searchDate() {

@@ -10,8 +10,8 @@ class Reservation extends Model implements Interval {
     public construct(HashMap<String, Object> map) {
         campsiteId = Int.parseInt((String)map["campsiteId"])
 
-        startDate = new DateTime((String)map["startDate"], format: "yyyy-MM-dd")
-        endDate = new DateTime((String)map["endDate"], format: "yyyy-MM-dd")
+        startDate = DateTime((String)map["startDate"], format: "yyyy-MM-dd")
+        endDate = DateTime((String)map["endDate"], format: "yyyy-MM-dd")
     }
 
     /// Check if this Reservation is the closest to the given search interval in comparison

@@ -9,7 +9,7 @@ import static "novex/nest/Nest"
 /// Test the functionality of the gap rule algorithm.
 testable class GapRuleTests {
     test givenTestCase() {
-        let rule = new SimpleGapRuleProgram(new File("test-case.json"));
+        let rule = SimpleGapRuleProgram(File("test-case.json"));
 
         let available = rule.getAvailableCampsites()
 
@@ -21,7 +21,7 @@ testable class GapRuleTests {
     }
 
     test noOpenings() {
-        let rule = new SimpleGapRuleProgram(new File("test-folder/no-openings.json"));
+        let rule = SimpleGapRuleProgram(File("test-folder/no-openings.json"));
 
         let available = rule.getAvailableCampsites()
 
@@ -29,7 +29,7 @@ testable class GapRuleTests {
     }
 
     test noReservations() {
-        let rule = new SimpleGapRuleProgram(new File("test-folder/no-reservations.json"));
+        let rule = SimpleGapRuleProgram(File("test-folder/no-reservations.json"));
 
         let available = rule.getAvailableCampsites()
 
@@ -38,7 +38,7 @@ testable class GapRuleTests {
     }
 
     test singleReservationConflict() {
-        let rule = new SimpleGapRuleProgram(new File("test-folder/one-reservation.json"))
+        let rule = SimpleGapRuleProgram(File("test-folder/one-reservation.json"))
 
         let available = rule.getAvailableCampsites()
 

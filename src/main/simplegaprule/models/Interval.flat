@@ -16,7 +16,7 @@ trait Interval extends Model {
             other.startDate.dayOfMonth - endDate.dayOfMonth - 1 :
             startDate.dayOfMonth - other.endDate.dayOfMonth - 1 {
         if (doesOverlap(other)) {
-            throw new Exception("Cannot get gap from overlapping intervals #this and #other")
+            throw Exception("Cannot get gap from overlapping intervals #this and #other")
         }
     }
 

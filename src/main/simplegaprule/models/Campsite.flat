@@ -31,7 +31,7 @@ class Campsite extends Model {
     public isReservationTimeAvailable(CampspotEnvironment environment, Search reservationTime = environment.search) -> Bool {
         // Make sure the campsite exists within the environment that is being searched
         if (!environment.campsites.contains(this)) {
-            throw new InvalidCampsiteException()
+            throw InvalidCampsiteException()
         }
 
         // Fetch all reservations for the campsite

@@ -32,7 +32,7 @@ class SimpleGapRuleProgram {
     /// args: The input json file locations to perform the gap rule test on.
     public static main(String[] args) {
         if (args.count <= 1) {
-            throw new Exception("Expected input files as arguments; e.g. '" +
+            throw Exception("Expected input files as arguments; e.g. '" +
                 args.first + " filename1.json directoryName filenameN.json'");
         }
 
@@ -51,7 +51,7 @@ class SimpleGapRuleProgram {
     ///
     /// fileLocation: The location of the file relative to the application's working directory.
     /// return: The list of runnable test cases.
-    public static loadFile(String fileLocation) => loadFile(new File(fileLocation))
+    public static loadFile(String fileLocation) => loadFile(File(fileLocation))
 
     /// Load test cases from the given file. If the file is a directory, will search
     /// recursively for json files.
@@ -60,7 +60,7 @@ class SimpleGapRuleProgram {
     /// return: The list of runnable test cases.
     public static loadFile(File file) -> SimpleGapRuleProgram[] {
         if (!file.exists) {
-            throw new Exception("Input file '#file.location' does not exist")
+            throw Exception("Input file '#file.location' does not exist")
         } else if (file.isDirectory) {
             // Reduce recursively returned lists into a single list, or return empty list
             return file.getChildFiles(true)
@@ -68,10 +68,10 @@ class SimpleGapRuleProgram {
                 .map({ loadFile(_) })
                 .reduce({ _ + _ }, new SimpleGapRuleProgram[0])
         } else if (file.extension.toLowerCase() != ".json") {
-            throw new Exception("Invalid input file '#file.location'. Requires '.json' extension, but found '#file.extension.toLowerCase()'")
+            throw Exception("Invalid input file '#file.location'. Requires '.json' extension, but found '#file.extension.toLowerCase()'")
         } else {
             // Return list with single element
-            return [new SimpleGapRuleProgram(file)]
+            return [SimpleGapRuleProgram(file)]
         }
     }
 
@@ -79,9 +79,9 @@ class SimpleGapRuleProgram {
     ///
     /// jsonFile: The file to load the test data from.
     public construct(File file) {
-        let serializer = new JsonDeserializer()
+        let serializer = JsonDeserializer()
 
-        environment = new CampspotEnvironment((HashMap)serializer.parse(file))
+        environment = CampspotEnvironment((HashMap)serializer.parse(file))
     }
 
     /// Get the available Campsites with the specified Search date criteria given
