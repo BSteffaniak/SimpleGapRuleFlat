@@ -1,6 +1,6 @@
-package "simplegaprule/models"
+package simplegaprule/models
 
-import "flatlang/datastruct/HashMap"
+import flatlang/datastruct/HashMap
 
 /// Model representing a Reservation to a Campsite. Contains a start date,
 /// end date, and corresponding campsite id.

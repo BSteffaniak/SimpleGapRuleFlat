@@ -1,6 +1,6 @@
-package "simplegaprule/models"
+package simplegaprule/models
 
-import "flatlang/datastruct/HashMap"
+import flatlang/datastruct/HashMap
 
 /// Model representing the whole campspot test case environment. Contains a
 /// Reservation Search interval, gap rules, campsites, and existing reservations.

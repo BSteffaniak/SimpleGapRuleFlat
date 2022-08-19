@@ -1,8 +1,8 @@
-package "simplegaprule/models"
+package simplegaprule/models
 
-import "flatlang/datastruct/HashMap"
+import flatlang/datastruct/HashMap
 
-import "simplegaprule/InvalidCampsiteException"
+import simplegaprule/InvalidCampsiteException
 
 /// Model representing a Campsite with a name and id.
 class Campsite extends Model {

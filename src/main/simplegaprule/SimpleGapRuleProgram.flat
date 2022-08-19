@@ -1,10 +1,10 @@
-package "simplegaprule"
+package simplegaprule
 
-import "flatlang/datastruct/HashMap"
-import "flatlang/io/File"
-import "flatlang/json/JsonDeserializer"
+import flatlang/datastruct/HashMap
+import flatlang/io/File
+import flatlang/json/JsonDeserializer
 
-import "simplegaprule/models/CampspotEnvironment"
+import simplegaprule/models/CampspotEnvironment
 
 /// Simple gap rule implementation.
 ///

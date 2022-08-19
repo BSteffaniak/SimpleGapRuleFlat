@@ -1,12 +1,12 @@
-package "simplegaprule"
+package simplegaprule
 
-import "flatlang/io/File"
+import flatlang/io/File
 
-import "simplegaprule/SimpleGapRuleProgram"
-import "simplegaprule/models/CampspotEnvironment"
-import "simplegaprule/models/Campsite"
-import "simplegaprule/models/Reservation"
-import "simplegaprule/models/GapRule"
+import simplegaprule/SimpleGapRuleProgram
+import simplegaprule/models/CampspotEnvironment
+import simplegaprule/models/Campsite
+import simplegaprule/models/Reservation
+import simplegaprule/models/GapRule
 
 import static "novex/nest/Nest"
 

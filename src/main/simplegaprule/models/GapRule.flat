@@ -1,6 +1,6 @@
-package "simplegaprule/models"
+package simplegaprule/models
 
-import "flatlang/datastruct/HashMap"
+import flatlang/datastruct/HashMap
 
 /// Model representing a number of days that cannot exist as a gap
 /// between two reservations.

@@ -1,6 +1,6 @@
-package "simplegaprule"
+package simplegaprule
 
-import "simplegaprule/SimpleGapRuleProgram"
+import simplegaprule/SimpleGapRuleProgram
 
 import static "novex/nest/Nest"
 

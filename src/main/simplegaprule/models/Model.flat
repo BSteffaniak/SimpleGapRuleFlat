@@ -1,5 +1,5 @@
-package "simplegaprule/models"
+package simplegaprule/models
 
 class Model {
-    
+
 }

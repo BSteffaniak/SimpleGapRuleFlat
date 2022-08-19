@@ -1,8 +1,8 @@
-package "simplegaprule"
+package simplegaprule
 
-import "flatlang/io/File"
+import flatlang/io/File
 
-import "simplegaprule/SimpleGapRuleProgram"
+import simplegaprule/SimpleGapRuleProgram
 
 import static "novex/nest/Nest"
 
