@@ -2,8 +2,6 @@ package simplegaprule
 
 import simplegaprule/SimpleGapRuleProgram
 
-import static novex/nest/Nest
-
 /// Test the file input functionality of the SimpleGapRuleProgram.
 testable class FileInputTests {
     test allTestCasesCount() {

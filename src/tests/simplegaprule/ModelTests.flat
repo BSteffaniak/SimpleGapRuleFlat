@@ -8,8 +8,6 @@ import simplegaprule/models/Campsite
 import simplegaprule/models/Reservation
 import simplegaprule/models/GapRule
 
-import static novex/nest/Nest
-
 /// Test the validity of the model loading from the JSON files.
 testable class ModelTests {
     var SimpleGapRuleProgram program
