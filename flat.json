@@ -8,22 +8,24 @@
   "scripts": {
     "test": "node dist/test.js"
   },
-  "main": {
-    "mainClass": "simplegaprule/SimpleGapRuleProgram",
-    "outDirectory": "dist",
-    "source": "src/main",
-    "dependencies": {
-      "github:FlatLang/Json": "master",
-      "github:FlatLang/System": "master",
-      "github:FlatLang/IO": "master"
-    }
-  },
-  "test": {
-    "mainClass": "simplegaprule/AllTestsRunner",
-    "outDirectory": "dist",
-    "source": "src",
-    "dependencies": {
-      "github:FlatLang/Nest": "master"
+  "sources": {
+    "main": {
+      "mainClass": "simplegaprule/SimpleGapRuleProgram",
+      "outDirectory": "dist",
+      "source": "src/main",
+      "dependencies": {
+        "github:FlatLang/Json": "master",
+        "github:FlatLang/System": "master",
+        "github:FlatLang/IO": "master"
+      }
+    },
+    "test": {
+      "mainClass": "simplegaprule/AllTestsRunner",
+      "outDirectory": "dist",
+      "source": "src",
+      "dependencies": {
+        "github:FlatLang/Nest": "master"
+      }
     }
   }
 }
