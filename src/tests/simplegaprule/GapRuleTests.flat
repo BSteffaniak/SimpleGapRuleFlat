@@ -6,41 +6,41 @@ import simplegaprule/SimpleGapRuleProgram
 
 /// Test the functionality of the gap rule algorithm.
 testable class GapRuleTests {
-    test givenTestCase() {
-        let rule = SimpleGapRuleProgram(File("test-case.json"));
+  test givenTestCase() {
+    let rule = SimpleGapRuleProgram(File("test-case.json"));
 
-        let available = rule.getAvailableCampsites()
+    let available = rule.getAvailableCampsites()
 
-        expect(available.count).toBe(4)
-        expect("Daniel Boone Bungalow" == available[0].name).toBe(true)
-        expect("Teddy Rosevelt Tent Site" == available[1].name).toBe(true)
-        expect("Bear Grylls Cozy Cave" == available[2].name).toBe(true)
-        expect("Wyatt Earp Corral" == available[3].name).toBe(true)
-    }
+    expect(available.count).toBe(4)
+    expect("Daniel Boone Bungalow" == available[0].name).toBe(true)
+    expect("Teddy Rosevelt Tent Site" == available[1].name).toBe(true)
+    expect("Bear Grylls Cozy Cave" == available[2].name).toBe(true)
+    expect("Wyatt Earp Corral" == available[3].name).toBe(true)
+  }
 
-    test noOpenings() {
-        let rule = SimpleGapRuleProgram(File("test-folder/no-openings.json"));
+  test noOpenings() {
+    let rule = SimpleGapRuleProgram(File("test-folder/no-openings.json"));
 
-        let available = rule.getAvailableCampsites()
+    let available = rule.getAvailableCampsites()
 
-        expect(available.count).toBe(0)
-    }
+    expect(available.count).toBe(0)
+  }
 
-    test noReservations() {
-        let rule = SimpleGapRuleProgram(File("test-folder/no-reservations.json"));
+  test noReservations() {
+    let rule = SimpleGapRuleProgram(File("test-folder/no-reservations.json"));
 
-        let available = rule.getAvailableCampsites()
+    let available = rule.getAvailableCampsites()
 
-        expect(available.count).toBe(rule.environment.campsites.count)
-        expect(rule.environment.reservations.count).toBe(0)
-    }
+    expect(available.count).toBe(rule.environment.campsites.count)
+    expect(rule.environment.reservations.count).toBe(0)
+  }
 
-    test singleReservationConflict() {
-        let rule = SimpleGapRuleProgram(File("test-folder/one-reservation.json"))
+  test singleReservationConflict() {
+    let rule = SimpleGapRuleProgram(File("test-folder/one-reservation.json"))
 
-        let available = rule.getAvailableCampsites()
+    let available = rule.getAvailableCampsites()
 
-        expect(available.count).toBe(rule.environment.campsites.count - 1)
-        expect(rule.environment.reservations.count).toBe(1)
-    }
+    expect(available.count).toBe(rule.environment.campsites.count - 1)
+    expect(rule.environment.reservations.count).toBe(1)
+  }
 }

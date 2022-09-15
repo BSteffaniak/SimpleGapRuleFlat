@@ -3,11 +3,11 @@ package simplegaprule
 /// Exception that is thrown when a Campsite instance is used outside of
 /// its environment.
 class InvalidCampsiteException extends Exception {
-    public construct() {
-        this("Campsite does not exist in environment")
-    }
+  public construct() {
+    this("Campsite does not exist in environment")
+  }
 
-    public construct(String message) {
-        super(message)
-    }
+  public construct(String message) {
+    super(message)
+  }
 }
