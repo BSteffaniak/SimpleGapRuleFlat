@@ -37,14 +37,9 @@ class SimpleGapRuleProgram {
         }
 
         args.skip(1)
-            .map({ loadFile(_) })
-            .forEach({
-                _.forEach({
-                    ((SimpleGapRuleProgram)_).getAvailableCampsites().forEach({
-                        Console.log(_)
-                    })
-                })
-            })
+            .flatMap({ loadFile(_) })
+            .flatMap({ _.getAvailableCampsites() })
+            .forEach({ Console.log(_) })
     }
 
     /// Load a file from a given fileLocation String.
