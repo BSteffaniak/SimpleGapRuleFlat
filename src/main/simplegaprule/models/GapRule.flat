@@ -8,6 +8,6 @@ class GapRule extends Model {
     public Int gapSize
 
     public construct(HashMap<String, Object> map) {
-        gapSize = Int.parseInt((String)map["gapSize"])
+        gapSize = (Int)map["gapSize"]
     }
 }

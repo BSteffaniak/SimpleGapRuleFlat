@@ -8,7 +8,7 @@ class Reservation extends Model implements Interval {
     public Int campsiteId
 
     public construct(HashMap<String, Object> map) {
-        campsiteId = Int.parseInt((String)map["campsiteId"])
+        campsiteId = (Int)map.get("campsiteId")
 
         startDate = DateTime((String)map["startDate"], format: "yyyy-MM-dd")
         endDate = DateTime((String)map["endDate"], format: "yyyy-MM-dd")

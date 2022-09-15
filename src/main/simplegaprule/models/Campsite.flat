@@ -10,7 +10,7 @@ class Campsite extends Model {
     public String name
 
     public construct(HashMap<String, Object> map) {
-        id = Int.parseInt((String)map["id"])
+        id = (Int)map["id"]
         name = (String)map["name"]
     }
 
