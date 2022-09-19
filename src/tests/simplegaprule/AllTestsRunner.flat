@@ -1,6 +1,6 @@
 package simplegaprule
 
-import flatlang/io/FancyOutputStream
+import flat/io/FancyOutputStream
 
 import novex/nest/TestResult
 

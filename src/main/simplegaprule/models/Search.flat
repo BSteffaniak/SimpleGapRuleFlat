@@ -1,6 +1,6 @@
 package simplegaprule/models
 
-import flatlang/datastruct/HashMap
+import flat/datastruct/HashMap
 
 /// Model that represents a reservation time search interval.
 class Search extends Model implements Interval {

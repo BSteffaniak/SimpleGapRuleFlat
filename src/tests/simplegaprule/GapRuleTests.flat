@@ -1,6 +1,6 @@
 package simplegaprule
 
-import flatlang/io/File
+import flat/io/File
 
 import simplegaprule/SimpleGapRuleProgram
 

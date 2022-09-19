@@ -1,6 +1,6 @@
 package simplegaprule/models
 
-import flatlang/time/DateTime
+import flat/time/DateTime
 
 /// Interface where common functions are kept for classes that contain a
 /// start and end date.

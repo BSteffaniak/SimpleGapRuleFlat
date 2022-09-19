@@ -1,8 +1,8 @@
 package simplegaprule
 
-import flatlang/datastruct/HashMap
-import flatlang/io/File
-import flatlang/json/JsonDeserializer
+import flat/datastruct/HashMap
+import flat/io/File
+import flat/json/JsonDeserializer
 
 import simplegaprule/models/CampspotEnvironment
 
