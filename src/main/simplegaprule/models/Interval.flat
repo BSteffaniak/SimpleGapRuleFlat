@@ -4,7 +4,7 @@ import flat/time/DateTime
 
 /// Interface where common functions are kept for classes that contain a
 /// start and end date.
-trait Interval extends Model {
+trait Interval {
   public DateTime startDate, endDate
 
   /// Get the days in the gap between the two intervals.
