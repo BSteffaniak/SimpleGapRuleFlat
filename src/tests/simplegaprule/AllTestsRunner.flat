@@ -9,7 +9,7 @@ class AllTestsRunner {
   public static async main(String[] args) {
     let runner = AllTestsRunner()
 
-    let unsucessful = new TestResult[]
+    let unsucessful = TestResult[]
 
     runner.runTests(result => {
       if (!result.success) {
