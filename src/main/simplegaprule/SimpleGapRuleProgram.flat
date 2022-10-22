@@ -24,7 +24,7 @@ import simplegaprule/models/CampspotEnvironment
 class SimpleGapRuleProgram {
   visible CampspotEnvironment environment
 
-  visible final static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
+  visible static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
 
   /// Command line gap rule runner. Takes files as input and outputs the results of the
   /// gap rule to the standard output.
