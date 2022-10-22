@@ -33,7 +33,7 @@ class SimpleGapRuleProgram {
   public static main(String[] args) {
     if (args.count <= 1) {
       throw Exception("Expected input files as arguments; e.g. '" +
-        args.first + " filename1.json directoryName filenameN.json'");
+        args.first + " filename1.json directoryName filenameN.json'")
     }
 
     args.skip(1)
