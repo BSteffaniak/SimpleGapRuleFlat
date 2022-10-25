@@ -5,7 +5,8 @@ import flat/time/DateTime
 /// Interface where common functions are kept for classes that contain a
 /// start and end date.
 trait Interval {
-  public DateTime startDate, endDate
+  public DateTime startDate
+  public DateTime endDate
 
   /// Get the days in the gap between the two intervals.
   ///
