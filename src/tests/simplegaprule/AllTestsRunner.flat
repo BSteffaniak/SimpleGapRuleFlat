@@ -2,7 +2,7 @@ package simplegaprule
 
 import flat/io/FancyOutputStream
 
-import novex/nest/TestResult
+import flat/test/TestResult
 
 [TestSuite [ModelTests, GapRuleTests, FileInputTests]]
 class AllTestsRunner {

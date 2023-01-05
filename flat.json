@@ -24,7 +24,7 @@
       "outDirectory": "dist",
       "source": "src",
       "dependencies": {
-        "github:FlatLang/Nest": "master"
+        "github:FlatLang/Test": "master"
       }
     }
   }
