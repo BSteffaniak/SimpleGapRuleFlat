@@ -13,16 +13,16 @@
             "mainClass": "simplegaprule/SimpleGapRuleProgram",
             "source": "src/main",
             "dependencies": {
-                "github:FlatLang/Json": "master",
-                "github:FlatLang/System": "master",
-                "github:FlatLang/IO": "master"
+                "https://github.com/FlatLang/Json.git": "master",
+                "https://github.com/FlatLang/System.git": "master",
+                "https://github.com/FlatLang/IO.git": "master"
             }
         },
         "test": {
             "mainClass": "simplegaprule/AllTestsRunner",
             "source": "src",
             "dependencies": {
-                "github:FlatLang/Test": "master"
+                "https://github.com/FlatLang/Test.git": "master"
             }
         }
     }
