@@ -4,56 +4,56 @@ import simplegaprule/SimpleGapRuleProgram
 
 /// Test the file input functionality of the SimpleGapRuleProgram.
 testable class FileInputTests {
-  test allTestCasesCount() {
-    let input = ["test-case.json", "test-folder"]
-    let result = input
-      .map({ SimpleGapRuleProgram.loadFile(_) })
-      .reduce({ _ + _ }, SimpleGapRuleProgram[])
+    test allTestCasesCount() {
+        let input = ["test-case.json", "test-folder"]
+        let result = input
+            .map({ SimpleGapRuleProgram.loadFile(_) })
+            .reduce({ _ + _ }, SimpleGapRuleProgram[])
 
-    expect(result).toNotBe(null)
-    expect(result.count).toBe(4)
-  }
-
-  test folderTestCasesCount() {
-    let input = ["test-folder"]
-    let result = input
-      .map({ SimpleGapRuleProgram.loadFile(_) })
-      .reduce({ _ + _ }, SimpleGapRuleProgram[])
-
-    expect(result).toNotBe(null)
-    expect(result.count).toBe(3)
-  }
-
-  test singleFileTestCasesCount() {
-    let input = ["test-case.json"]
-    let result = input
-      .map({ SimpleGapRuleProgram.loadFile(_) })
-      .reduce({ _ + _ }, SimpleGapRuleProgram[])
-
-    expect(result).toNotBe(null)
-    expect(result.count).toBe(1)
-  }
-
-  test nonExistentFile() {
-    let input = ["test-case.json", "test-folder"]
-
-    try {
-      let result = input
-        .map({ SimpleGapRuleProgram.loadFile(_) })
-        .reduce({ _ + _ }, SimpleGapRuleProgram[])
-
-      fail()
-    } catch (Exception e) {
-
+        expect(result).toNotBe(null)
+        expect(result.count).toBe(4)
     }
-  }
 
-  test folderWithNoJson() {
-    let input = ["src"]
-    let result = input
-      .map({ SimpleGapRuleProgram.loadFile(_) })
-      .reduce({ _ + _ }, SimpleGapRuleProgram[])
+    test folderTestCasesCount() {
+        let input = ["test-folder"]
+        let result = input
+            .map({ SimpleGapRuleProgram.loadFile(_) })
+            .reduce({ _ + _ }, SimpleGapRuleProgram[])
 
-    expect(result.count).toBe(0)
-  }
+        expect(result).toNotBe(null)
+        expect(result.count).toBe(3)
+    }
+
+    test singleFileTestCasesCount() {
+        let input = ["test-case.json"]
+        let result = input
+            .map({ SimpleGapRuleProgram.loadFile(_) })
+            .reduce({ _ + _ }, SimpleGapRuleProgram[])
+
+        expect(result).toNotBe(null)
+        expect(result.count).toBe(1)
+    }
+
+    test nonExistentFile() {
+        let input = ["test-case.json", "test-folder"]
+
+        try {
+            let result = input
+                .map({ SimpleGapRuleProgram.loadFile(_) })
+                .reduce({ _ + _ }, SimpleGapRuleProgram[])
+
+            fail()
+        } catch (Exception e) {
+
+        }
+    }
+
+    test folderWithNoJson() {
+        let input = ["src"]
+        let result = input
+            .map({ SimpleGapRuleProgram.loadFile(_) })
+            .reduce({ _ + _ }, SimpleGapRuleProgram[])
+
+        expect(result.count).toBe(0)
+    }
 }

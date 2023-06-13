@@ -10,92 +10,92 @@ import simplegaprule/models/GapRule
 
 /// Test the validity of the model loading from the JSON files.
 testable class ModelTests {
-  var SimpleGapRuleProgram program
+    var SimpleGapRuleProgram program
 
-  init_test setup() {
-    program = SimpleGapRuleProgram(File("test-case.json"))
-  }
-
-  test searchDate() {
-    expect("2016-06-07" == program.environment.search.startDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
-    expect("2016-06-10" == program.environment.search.endDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
-  }
-
-  test campsiteCount() {
-    expect(program.environment.campsites.count).toBe(9)
-  }
-
-  test reservationCount() {
-    expect(program.environment.reservations.count).toBe(19)
-  }
-
-  test gapRuleCount() {
-    expect(program.environment.gapRules.count).toBe(2)
-  }
-
-  test campsiteContent() {
-    let values = [
-      "Grizzly Adams Adventure Cabin",
-      "Lewis and Clark Camp Spot",
-      "Jonny Appleseed Log Cabin",
-      "Davey Crockett Camphouse",
-      "Daniel Boone Bungalow",
-      "Teddy Rosevelt Tent Site",
-      "Edmund Hillary Igloo",
-      "Bear Grylls Cozy Cave",
-      "Wyatt Earp Corral"
-    ]
-
-    for (i in 0..values.count)
-    {
-      let site = program.environment.campsites[i]
-
-      expect(site.id).toBe(i + 1)
-      expect(values[i] == site.name).toBe(true)
+    init_test setup() {
+        program = SimpleGapRuleProgram(File("test-case.json"))
     }
-  }
 
-  test reservationContent() {
-    let ids = [1, 1, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 9]
-    let dateRanges = [
-      "2016-06-01 to 2016-06-04",
-      "2016-06-11 to 2016-06-13",
-      "2016-06-08 to 2016-06-09",
-      "2016-06-04 to 2016-06-06",
-      "2016-06-14 to 2016-06-16",
-      "2016-06-03 to 2016-06-05",
-      "2016-06-13 to 2016-06-14",
-      "2016-06-03 to 2016-06-06",
-      "2016-06-12 to 2016-06-14",
-      "2016-06-04 to 2016-06-06",
-      "2016-06-11 to 2016-06-12",
-      "2016-06-16 to 2016-06-16",
-      "2016-06-03 to 2016-06-04",
-      "2016-06-07 to 2016-06-09",
-      "2016-06-13 to 2016-06-16",
-      "2016-06-01 to 2016-06-02",
-      "2016-06-05 to 2016-06-06",
-      "2016-06-03 to 2016-06-05",
-      "2016-06-12 to 2016-06-16"
-    ]
-
-    for (i in 0..ids.count)
-    {
-      let reservation = program.environment.reservations[i]
-
-      expect(reservation.campsiteId).toBe(ids[i])
-      expect(dateRanges[i] == reservation.startDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT) + " to " + reservation.endDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
+    test searchDate() {
+        expect("2016-06-07" == program.environment.search.startDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
+        expect("2016-06-10" == program.environment.search.endDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
     }
-  }
 
-  test gapRuleContent() {
-    let values = [2, 3]
-
-    for (i in 0..values.count)
-    {
-      let gapRule = program.environment.gapRules[i]
-
-      expect(gapRule.gapSize).toBe(values[i])
+    test campsiteCount() {
+        expect(program.environment.campsites.count).toBe(9)
     }
-  }
+
+    test reservationCount() {
+        expect(program.environment.reservations.count).toBe(19)
+    }
+
+    test gapRuleCount() {
+        expect(program.environment.gapRules.count).toBe(2)
+    }
+
+    test campsiteContent() {
+        let values = [
+            "Grizzly Adams Adventure Cabin",
+            "Lewis and Clark Camp Spot",
+            "Jonny Appleseed Log Cabin",
+            "Davey Crockett Camphouse",
+            "Daniel Boone Bungalow",
+            "Teddy Rosevelt Tent Site",
+            "Edmund Hillary Igloo",
+            "Bear Grylls Cozy Cave",
+            "Wyatt Earp Corral"
+        ]
+
+        for (i in 0..values.count)
+        {
+            let site = program.environment.campsites[i]
+
+            expect(site.id).toBe(i + 1)
+            expect(values[i] == site.name).toBe(true)
+        }
+    }
+
+    test reservationContent() {
+        let ids = [1, 1, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 9, 9]
+        let dateRanges = [
+            "2016-06-01 to 2016-06-04",
+            "2016-06-11 to 2016-06-13",
+            "2016-06-08 to 2016-06-09",
+            "2016-06-04 to 2016-06-06",
+            "2016-06-14 to 2016-06-16",
+            "2016-06-03 to 2016-06-05",
+            "2016-06-13 to 2016-06-14",
+            "2016-06-03 to 2016-06-06",
+            "2016-06-12 to 2016-06-14",
+            "2016-06-04 to 2016-06-06",
+            "2016-06-11 to 2016-06-12",
+            "2016-06-16 to 2016-06-16",
+            "2016-06-03 to 2016-06-04",
+            "2016-06-07 to 2016-06-09",
+            "2016-06-13 to 2016-06-16",
+            "2016-06-01 to 2016-06-02",
+            "2016-06-05 to 2016-06-06",
+            "2016-06-03 to 2016-06-05",
+            "2016-06-12 to 2016-06-16"
+        ]
+
+        for (i in 0..ids.count)
+        {
+            let reservation = program.environment.reservations[i]
+
+            expect(reservation.campsiteId).toBe(ids[i])
+            expect(dateRanges[i] == reservation.startDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT) + " to " + reservation.endDate.toString(SimpleGapRuleProgram.DEFAULT_DATE_FORMAT)).toBe(true)
+        }
+    }
+
+    test gapRuleContent() {
+        let values = [2, 3]
+
+        for (i in 0..values.count)
+        {
+            let gapRule = program.environment.gapRules[i]
+
+            expect(gapRule.gapSize).toBe(values[i])
+        }
+    }
 }

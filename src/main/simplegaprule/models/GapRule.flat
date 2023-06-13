@@ -5,9 +5,9 @@ import flat/datastruct/HashMap
 /// Model representing a number of days that cannot exist as a gap
 /// between two reservations.
 class GapRule extends Model {
-  public Int gapSize
+    public Int gapSize
 
-  public construct(HashMap<String, Object> map) {
-    gapSize = (Int)map["gapSize"]
-  }
+    public construct(HashMap<String, Object> map) {
+        gapSize = (Int)map["gapSize"]
+    }
 }

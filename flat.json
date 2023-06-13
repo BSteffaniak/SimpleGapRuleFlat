@@ -1,29 +1,29 @@
 {
-  "name": "SimpleGapRule",
-  "version": "1.0.0",
-  "description": "Simple Gap Rule",
-  "author": "Braden Steffaniak",
-  "license": "ISC",
-  "defaultTarget": "js",
-  "scripts": {
-    "test": "node dist/js/test.js"
-  },
-  "sources": {
-    "main": {
-      "mainClass": "simplegaprule/SimpleGapRuleProgram",
-      "source": "src/main",
-      "dependencies": {
-        "github:FlatLang/Json": "master",
-        "github:FlatLang/System": "master",
-        "github:FlatLang/IO": "master"
-      }
+    "name": "SimpleGapRule",
+    "version": "1.0.0",
+    "description": "Simple Gap Rule",
+    "author": "Braden Steffaniak",
+    "license": "ISC",
+    "defaultTarget": "js",
+    "scripts": {
+        "test": "node dist/js/test.js"
     },
-    "test": {
-      "mainClass": "simplegaprule/AllTestsRunner",
-      "source": "src",
-      "dependencies": {
-        "github:FlatLang/Test": "master"
-      }
+    "sources": {
+        "main": {
+            "mainClass": "simplegaprule/SimpleGapRuleProgram",
+            "source": "src/main",
+            "dependencies": {
+                "github:FlatLang/Json": "master",
+                "github:FlatLang/System": "master",
+                "github:FlatLang/IO": "master"
+            }
+        },
+        "test": {
+            "mainClass": "simplegaprule/AllTestsRunner",
+            "source": "src",
+            "dependencies": {
+                "github:FlatLang/Test": "master"
+            }
+        }
     }
-  }
 }

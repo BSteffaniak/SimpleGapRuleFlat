@@ -22,69 +22,69 @@ import simplegaprule/models/CampspotEnvironment
 ///
 /// author: Braden Steffaniak
 class SimpleGapRuleProgram {
-  visible CampspotEnvironment environment
+    visible CampspotEnvironment environment
 
-  visible static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
+    visible static String DEFAULT_DATE_FORMAT = "yyyy-MM-dd"
 
-  /// Command line gap rule runner. Takes files as input and outputs the results of the
-  /// gap rule to the standard output.
-  ///
-  /// args: The input json file locations to perform the gap rule test on.
-  public static main(String[] args) {
-    if (args.count <= 1) {
-      throw Exception("Expected input files as arguments; e.g. '" +
-        args.first + " filename1.json directoryName filenameN.json'")
+    /// Command line gap rule runner. Takes files as input and outputs the results of the
+    /// gap rule to the standard output.
+    ///
+    /// args: The input json file locations to perform the gap rule test on.
+    public static main(String[] args) {
+        if (args.count <= 1) {
+            throw Exception("Expected input files as arguments; e.g. '" +
+                args.first + " filename1.json directoryName filenameN.json'")
+        }
+
+        args.skip(1)
+            .flatMap({ loadFile(_) })
+            .flatMap({ _.getAvailableCampsites() })
+            .forEach({ Console.log(_) })
     }
 
-    args.skip(1)
-      .flatMap({ loadFile(_) })
-      .flatMap({ _.getAvailableCampsites() })
-      .forEach({ Console.log(_) })
-  }
+    /// Load a file from a given fileLocation String.
+    ///
+    /// fileLocation: The location of the file relative to the application's working directory.
+    /// return: The list of runnable test cases.
+    public static loadFile(String fileLocation) => loadFile(File(fileLocation))
 
-  /// Load a file from a given fileLocation String.
-  ///
-  /// fileLocation: The location of the file relative to the application's working directory.
-  /// return: The list of runnable test cases.
-  public static loadFile(String fileLocation) => loadFile(File(fileLocation))
-
-  /// Load test cases from the given file. If the file is a directory, will search
-  /// recursively for json files.
-  ///
-  /// file: The file or directory to load the test case(s) from.
-  /// return: The list of runnable test cases.
-  public static loadFile(File file) -> SimpleGapRuleProgram[] {
-    if (!file.exists) {
-      throw Exception("Input file '#file.location' does not exist")
-    } else if (file.isDirectory) {
-      // Reduce recursively returned lists into a single list, or return empty list
-      return file.getChildFiles(true)
-        .filter({ _.extension.toLowerCase() == ".json" })
-        .map({ loadFile(_) })
-        .reduce({ _ + _ }, new SimpleGapRuleProgram[0])
-    } else if (file.extension.toLowerCase() != ".json") {
-      throw Exception("Invalid input file '#file.location'. Requires '.json' extension, but found '#file.extension.toLowerCase()'")
-    } else {
-      // Return list with single element
-      return [SimpleGapRuleProgram(file)]
+    /// Load test cases from the given file. If the file is a directory, will search
+    /// recursively for json files.
+    ///
+    /// file: The file or directory to load the test case(s) from.
+    /// return: The list of runnable test cases.
+    public static loadFile(File file) -> SimpleGapRuleProgram[] {
+        if (!file.exists) {
+            throw Exception("Input file '#file.location' does not exist")
+        } else if (file.isDirectory) {
+            // Reduce recursively returned lists into a single list, or return empty list
+            return file.getChildFiles(true)
+                .filter({ _.extension.toLowerCase() == ".json" })
+                .map({ loadFile(_) })
+                .reduce({ _ + _ }, new SimpleGapRuleProgram[0])
+        } else if (file.extension.toLowerCase() != ".json") {
+            throw Exception("Invalid input file '#file.location'. Requires '.json' extension, but found '#file.extension.toLowerCase()'")
+        } else {
+            // Return list with single element
+            return [SimpleGapRuleProgram(file)]
+        }
     }
-  }
 
-  /// Initialize the SimpleGapRule instance fields. Prepare for running test case.
-  ///
-  /// jsonFile: The file to load the test data from.
-  public construct(File file) {
-    let serializer = JsonDeserializer()
+    /// Initialize the SimpleGapRule instance fields. Prepare for running test case.
+    ///
+    /// jsonFile: The file to load the test data from.
+    public construct(File file) {
+        let serializer = JsonDeserializer()
 
-    environment = CampspotEnvironment((HashMap)serializer.parse(file))
-  }
+        environment = CampspotEnvironment((HashMap)serializer.parse(file))
+    }
 
-  /// Get the available Campsites with the specified Search date criteria given
-  /// in the test case json file.
-  ///
-  /// return: A List of Campsites.
-  public getAvailableCampsites() =>
-    environment.campsites.filter({
-      _.isReservationTimeAvailable(environment)
-    })
+    /// Get the available Campsites with the specified Search date criteria given
+    /// in the test case json file.
+    ///
+    /// return: A List of Campsites.
+    public getAvailableCampsites() =>
+        environment.campsites.filter({
+            _.isReservationTimeAvailable(environment)
+        })
 }

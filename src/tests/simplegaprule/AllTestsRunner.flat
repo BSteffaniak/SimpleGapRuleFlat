@@ -6,29 +6,29 @@ import flat/test/TestResult
 
 [TestSuite [ModelTests, GapRuleTests, FileInputTests]]
 class AllTestsRunner {
-  public static async main(String[] args) {
-    let runner = AllTestsRunner()
+    public static async main(String[] args) {
+        let runner = AllTestsRunner()
 
-    let unsucessful = TestResult[]
+        let unsucessful = TestResult[]
 
-    runner.runTests(result => {
-      if (!result.success) {
-        unsucessful.add(result)
-      }
-    })
+        runner.runTests(result => {
+            if (!result.success) {
+                unsucessful.add(result)
+            }
+        })
 
-    let fancy = FancyOutputStream(headerPattern: "/\\")
+        let fancy = FancyOutputStream(headerPattern: "/\\")
 
-    if (unsucessful.count > 0) {
-      fancy.writeHeader("#unsucessful.count Failure#{unsucessful.count == 1 ? "" : "s"}", pattern: ":'( ", symmetrical: true)
+        if (unsucessful.count > 0) {
+            fancy.writeHeader("#unsucessful.count Failure#{unsucessful.count == 1 ? "" : "s"}", pattern: ":'( ", symmetrical: true)
 
-      unsucessful.forEach({
-        Console.log("#_")
-      })
+            unsucessful.forEach({
+                Console.log("#_")
+            })
 
-      System.exit(1)
-    } else {
-      fancy.writeHeader("All Successful", pattern: ":) ", symmetrical: true)
+            System.exit(1)
+        } else {
+            fancy.writeHeader("All Successful", pattern: ":) ", symmetrical: true)
+        }
     }
-  }
 }
